@@ -26,8 +26,9 @@
  - Usando o PostMan ou outro basta consumir as rotas de exemplo:
     => Cadastrar novo Tutorial [POST] http://localhost:8081/api/tutorials
         Corpo da requisição (Body):
-        {
-            "title": "Primeiro Tutorial",
-            "description": "Tutorial inicial",
-            "published": 1
-        }
+
+```{
+    "title": "Primeiro Tutorial",
+    "description": "Tutorial inicial",
+    "published": 1
+}```
