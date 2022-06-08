@@ -28,6 +28,7 @@
  - Versao com Postgresql usando o Prisma:
     
     `npm install prisma --save-dev`
+    `npm install pg dotenv --save` 
 
  - Inicializar o Prisma para esse projeto:
 
@@ -35,6 +36,7 @@
 
  - Agora poderá executar a API com:
     `npm start`
+
  - Usando o PostMan ou outro basta consumir as rotas de exemplo:
     => Cadastrar novo Tutorial [POST] http://localhost:8081/api/tutorials
         
