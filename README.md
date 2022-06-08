@@ -18,9 +18,21 @@
 # Passos para executar o sistema atualizando o NPM
  
  - Delete o arquivo package-lock.json;
+ 
  - Apague o conteudo do objeto JSON no campo "dependencies" deixando apenas a chave vazia "dependencies":{};
+ 
  - Execute o comando para instalar os recursos necessário para rodar a API:
-    npm install cors express mysql
+    
+    `npm install cors express mysql`
+
+ - Versao com Postgresql usando o Prisma:
+    
+    `npm install prisma --save-dev`
+
+ - Inicializar o Prisma para esse projeto:
+
+    `npx prisma init`
+
  - Agora poderá executar a API com:
     `npm start`
  - Usando o PostMan ou outro basta consumir as rotas de exemplo:
