@@ -15,7 +15,7 @@
         
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-# passos para executar o sistema atualizando o NPM
+# Passos para executar o sistema atualizando o NPM
  
  - Delete o arquivo package-lock.json;
  - Apague o conteudo do objeto JSON no campo "dependencies" deixando apenas a chave vazia "dependencies":{};
