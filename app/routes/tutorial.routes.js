@@ -2,10 +2,11 @@ module.exports = app => {
     const tutorials = require("../controllers/tutorial.controller.js");
     var router = require("express").Router();
 
-    // Create a new Tutorial => http://localhost:8081/api/
-    router.post("/", tutorials.create);
     // Retrieve all Tutorials
     router.get("/", tutorials.findAll);
+
+    // Create a new Tutorial => http://localhost:8081/api/
+    router.post("/", tutorials.create);
     // Retrieve all published Tutorials
     router.get("/published", tutorials.findAllPublished);
     // Retrieve a single Tutorial with id

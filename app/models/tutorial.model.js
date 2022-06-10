@@ -1,10 +1,29 @@
 const sql = require("./db.js");
-// constructor
-const Tutorial = function(tutorial) {
-    this.title = tutorial.title;
-    this.description = tutorial.description;
-    this.published = tutorial.published;
-};
+
+class Tutorial {
+    //construtor
+    constructor(tutorial) {
+            this.title = tutorial.title;
+            this.description = tutorial.description;
+            this.published = tutorial.published;
+        }
+        //Metodo que lista todos os registros
+    static getAll(title, result) {
+        let query = "SELECT * FROM tutorials";
+        if (title) {
+            query += ` WHERE title LIKE '%${title}%'`;
+        }
+        sql.query(query, (err, res) => {
+            if (err) {
+                console.log("error: ", err);
+                result(null, err);
+                return;
+            }
+            console.log("tutorials: ", res);
+            result(null, res);
+        });
+    }
+}
 Tutorial.create = (newTutorial, result) => {
     sql.query("INSERT INTO tutorials SET ?", newTutorial, (err, res) => {
         if (err) {
@@ -32,21 +51,7 @@ Tutorial.findById = (id, result) => {
         result({ kind: "not_found" }, null);
     });
 };
-Tutorial.getAll = (title, result) => {
-    let query = "SELECT * FROM tutorials";
-    if (title) {
-        query += ` WHERE title LIKE '%${title}%'`;
-    }
-    sql.query(query, (err, res) => {
-        if (err) {
-            console.log("error: ", err);
-            result(null, err);
-            return;
-        }
-        console.log("tutorials: ", res);
-        result(null, res);
-    });
-};
+
 Tutorial.getAllPublished = result => {
     sql.query("SELECT * FROM tutorials WHERE published=true", (err, res) => {
         if (err) {
